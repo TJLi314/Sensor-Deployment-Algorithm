@@ -2,6 +2,10 @@ from matplotlib import pyplot as plt
 import math 
 from random import randint
 
+# plt.grid()
+# plt.gca().set_aspect("equal")
+# plt.axis([-3, 5, -2, 4])
+
 class Point: # Class to represent a 2D point on a coordinate grid
     def __init__(self, X = 0, Y = 0) -> None:
         self.X = X
@@ -94,11 +98,29 @@ def point_generator(num, x_min, x_max, y_min, y_max):
 
     return points    
 
-mec = welzl_algorithm(point_generator(10, -10, 10, -10, 10))
+mec = welzl_algorithm(point_generator(25, -10, 10, -10, 10))
 print("Center = {",mec.center.X,",",mec.center.Y,"} Radius =",mec.radius)
 
 plt.plot(mec.center.X, mec.center.Y, marker="o", markersize=5, markeredgecolor="pink", markerfacecolor="blue")
 circle = plt.Circle((mec.center.X, mec.center.Y), mec.radius, fill = False)
+
+# mec = welzl_algorithm([Point(0, 0), Point(0, 1), Point(1, 0)])
+# print("Center = {",mec.center.X,",",mec.center.Y,"} Radius =",mec.radius)
+# circle = plt.Circle((mec.center.X, mec.center.Y), mec.radius, fill = False)
+# plt.plot(0, 0, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="green")
+# plt.plot(0, 1, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="green")
+# plt.plot(1, 0, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="green")
+# plt.plot(mec.center.X, mec.center.Y, marker="o", markersize=5, markeredgecolor="orange", markerfacecolor="yellow")
+
+# plt.plot(0, 0, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="green")
+# plt.plot(0, 1, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="green")
+# plt.plot(1, 3, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="green")
+# plt.plot(4, 0, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="green")
+# plt.plot(-1, -1, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="green")
+# plt.plot(-2, 1, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="green")
+# plt.plot(-1, 3, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="green")
+# plt.plot(2, 2, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="green")
+# plt.plot([-2, 4], [1, 0], color = "blue")
 
 ax = plt.gca()
 ax.add_patch(circle)
