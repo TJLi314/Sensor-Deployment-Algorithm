@@ -127,6 +127,8 @@ ax.add_patch(circle)
 plt.show()
 
 
+# if __name__ == "__welzl_algorithm__":
+#     welzl_algorithm()
 
 
 
