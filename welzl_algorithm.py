@@ -98,11 +98,11 @@ def point_generator(num, x_min, x_max, y_min, y_max):
 
     return points    
 
-mec = welzl_algorithm(point_generator(25, -10, 10, -10, 10))
-print("Center = {",mec.center.X,",",mec.center.Y,"} Radius =",mec.radius)
+# mec = welzl_algorithm(point_generator(25, -10, 10, -10, 10))
+# print("Center = {",mec.center.X,",",mec.center.Y,"} Radius =",mec.radius)
 
-plt.plot(mec.center.X, mec.center.Y, marker="o", markersize=5, markeredgecolor="pink", markerfacecolor="blue")
-circle = plt.Circle((mec.center.X, mec.center.Y), mec.radius, fill = False)
+# plt.plot(mec.center.X, mec.center.Y, marker="o", markersize=5, markeredgecolor="pink", markerfacecolor="blue")
+# circle = plt.Circle((mec.center.X, mec.center.Y), mec.radius, fill = False)
 
 # mec = welzl_algorithm([Point(0, 0), Point(0, 1), Point(1, 0)])
 # print("Center = {",mec.center.X,",",mec.center.Y,"} Radius =",mec.radius)
@@ -122,13 +122,10 @@ circle = plt.Circle((mec.center.X, mec.center.Y), mec.radius, fill = False)
 # plt.plot(2, 2, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="green")
 # plt.plot([-2, 4], [1, 0], color = "blue")
 
-ax = plt.gca()
-ax.add_patch(circle)
-plt.show()
+# ax = plt.gca()
+# ax.add_patch(circle)
+# plt.show()
 
-
-# if __name__ == "__welzl_algorithm__":
-#     welzl_algorithm()
 
 
 
