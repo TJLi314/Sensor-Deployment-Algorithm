@@ -1,11 +1,27 @@
+from matplotlib import pyplot as plt
 from kpp_algorithm import *
+from welzl_algorithm import *
+
 
 def main():
-        # points = [Point(0, 0), Point(1, 3), Point(0, 1), Point(4, 0), Point(-1, -1), Point(-2, 1), Point(-1, 3), Point(2, 2)]
-        # width, two_points = get_width(points)
-        # print(width)
-        # print(two_points[0].X, two_points[0].Y, two_points[1].X, two_points[1].Y)
-        pass
+        
+        plt.gca().set_aspect("equal")
+        plt.axis([-1.5, 2.5, -2, 2])
+        
+
+        points = kpp_algorithm(7, 1)
+        print_points(points)
+
+        mec = welzl_algorithm(points)
+        print("Center = {",mec.center.X,",",mec.center.Y,"} Radius =",mec.radius)
+
+        # plt.plot(mec.center.X, mec.center.Y, marker="o", markersize=5, markeredgecolor="pink", markerfacecolor="blue")
+        circle = plt.Circle((mec.center.X, mec.center.Y), mec.radius, fill = False, edgecolor = "blue", linewidth = 5)
+
+        ax = plt.gca()
+        ax.add_patch(circle)
+        plt.show()
 
 if __name__ == "__main__":
-    main()
+        main()
+

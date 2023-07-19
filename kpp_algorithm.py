@@ -3,9 +3,10 @@ import math
 from welzl_algorithm import Point
 from welzl_algorithm import dist
 
-plt.grid()
-plt.gca().set_aspect("equal")
-plt.axis([-5, 5, -5, 5])
+# plt.grid()
+# plt.axis([-1, 1.5, -1, 1.5])
+# plt.gca().set_aspect("equal")
+
 
 def kpp_algorithm(k, d): # calculates optimal point placement of k points with minimum d separation
 
@@ -20,7 +21,7 @@ def kpp_algorithm(k, d): # calculates optimal point placement of k points with m
             points.append(next_point)
 
     for point in points:    # Plot the points
-        plt.plot(point.X, point.Y, marker="o", markersize=5, markeredgecolor="red", markerfacecolor="green")
+        plt.plot(point.X, point.Y, marker="o", markersize=20, markeredgecolor="red", markerfacecolor="green")
 
     return points
 
@@ -73,11 +74,16 @@ def in_points(p, points): # returns whether a point is in the set of points
     return False
 
 def pentagon(d): # returns the points of a regular pentagon with edge length d
-    a = Point(0, 0)
-    b = Point(d, 0)
-    c = Point(d + d * math.cos(math.radians(72)), d * math.sin(math.radians(72)))
+    # a = Point(0, 0)
+    # b = Point(d, 0)
+    # c = Point(d + d * math.cos(math.radians(72)), d * math.sin(math.radians(72)))
+    # e = Point(c.X - d * math.cos(math.radians(36)), c.Y + d * math.sin(math.radians(36)))
+    # f = Point(-d * math.cos(math.radians(72)), d * math.sin(math.radians(72)))
+    a = Point(-0.25, -0.5)
+    b = Point(a.X + d, -0.5)
+    c = Point(b.X + d * math.cos(math.radians(72)), b.Y + d * math.sin(math.radians(72)))
     e = Point(c.X - d * math.cos(math.radians(36)), c.Y + d * math.sin(math.radians(36)))
-    f = Point(-d * math.cos(math.radians(72)), d * math.sin(math.radians(72)))
+    f = Point(a.X - d * math.cos(math.radians(72)), a.Y + d * math.sin(math.radians(72)))
     return [a, b, c, e, f]
 
 
@@ -94,18 +100,23 @@ def get_width(points): # finds width of the given point placement
     return width, two_points
 
 def print_points(points): # Prints the point set
-    s = ""
+    s = "Points: "
     for point in points:
         s += "(" + str(point.X) + ", " + str(point.Y) + ") "
     print(s)
 
-points = kpp_algorithm(5, 1)
-print_points(points)
+# points = kpp_algorithm(5, 1)
+# print_points(points)
 
-width, two_points = get_width(points)
-print(width)
-print_points(two_points)
+# width, two_points = get_width(points)
+# print(width)
+# print_points(two_points)
 
-plt.show()
+# # plt.plot(0, -0.5, marker="o", markersize=10, markeredgecolor="red", markerfacecolor="green")
+# # plt.plot(0, 0.5, marker="o", markersize=10, markeredgecolor="red", markerfacecolor="green")
+# # plt.plot(1, -0.5, marker="o", markersize=10, markeredgecolor="red", markerfacecolor="green")
+# # plt.plot(1, 0.5, marker="o", markersize=10, markeredgecolor="red", markerfacecolor="green")
+
+# plt.show()
 
 
