@@ -20,8 +20,8 @@ def kpp_algorithm(k, d): # calculates optimal point placement of k points with m
             next_point = get_triangle_point(points, d)
             points.append(next_point)
 
-    for point in points:    # Plot the points
-        plt.plot(point.X, point.Y, marker="o", markersize=20, markeredgecolor="red", markerfacecolor="green")
+    # for point in points:    # Plot the points
+    #     plt.plot(point.X, point.Y, marker="o", markersize=20, markeredgecolor="red", markerfacecolor="green")
 
     return points
 

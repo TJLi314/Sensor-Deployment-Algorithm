@@ -1,27 +1,21 @@
-from matplotlib import pyplot as plt
-from kpp_algorithm import *
-from welzl_algorithm import *
-
+from simulation import *
 
 def main():
         
-        plt.gca().set_aspect("equal")
-        plt.axis([-1.5, 2.5, -2, 2])
+        sens_vals = [20, 25, 30, 35, 40, 45, 50]
+        k_vals = [2, 3, 4, 5, 6, 7, 8]
+        print_sensing_data(sens_vals, k_vals, 2, 500)
+
+        print_k_data([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 25, 2, 500)
+
+        d_vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        print_d_data(d_vals, k_vals, 25, 500)
+
+        print_radius_data(d_vals, k_vals)
+
+        print_connectivity(d_vals, 4, 25)
+
         
-
-        points = kpp_algorithm(7, 1)
-        print_points(points)
-
-        mec = welzl_algorithm(points)
-        print("Center = {",mec.center.X,",",mec.center.Y,"} Radius =",mec.radius)
-
-        # plt.plot(mec.center.X, mec.center.Y, marker="o", markersize=5, markeredgecolor="pink", markerfacecolor="blue")
-        circle = plt.Circle((mec.center.X, mec.center.Y), mec.radius, fill = False, edgecolor = "blue", linewidth = 5)
-
-        ax = plt.gca()
-        ax.add_patch(circle)
-        plt.show()
-
 if __name__ == "__main__":
         main()
 
